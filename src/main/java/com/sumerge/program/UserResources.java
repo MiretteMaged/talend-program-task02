@@ -33,7 +33,7 @@ public class UserResources {
     public Response getAllUsers() {
         try {
             return Response.ok().
-                    entity(users.ShowAll()).
+                    entity(users.showAll()).
                     build();
         } catch (Exception e) {
             LOGGER.log(SEVERE, e.getMessage(), e);
@@ -48,7 +48,7 @@ public class UserResources {
         try {
 
             return Response.ok().
-                    entity(users.SearchUserById(id)).
+                    entity(users.searchUserById(id)).
                     build();
         } catch (Exception e) {
             LOGGER.log(SEVERE, e.getMessage(), e);
@@ -63,7 +63,7 @@ public class UserResources {
         try {
 
             return Response.ok().
-                    entity(users.SearchUserByName(name)).
+                    entity(users.searchUserByName(name)).
                     build();
         } catch (Exception e) {
             LOGGER.log(SEVERE, e.getMessage(), e);
@@ -77,7 +77,7 @@ public class UserResources {
         try {
 
             return Response.ok().
-                    entity(users.SearchUserByAdress(adress)).
+                    entity(users.searchUserByAdress(adress)).
                     build();
         } catch (Exception e) {
             LOGGER.log(SEVERE, e.getMessage(), e);
@@ -92,7 +92,7 @@ public class UserResources {
         try {
 
             return Response.ok().
-                    entity(users.SearchUserByEmail(email)).
+                    entity(users.searchUserByEmail(email)).
                     build();
         } catch (Exception e) {
             LOGGER.log(SEVERE, e.getMessage(), e);
@@ -107,7 +107,7 @@ public class UserResources {
             if (user.getID() != null)
                 throw new IllegalArgumentException("Can't create user since it exists in the database");
 
-            User merged = (User) users.AddUser(user.getID(),user.getName(),user.getAdress(),user.getEmail());
+            User merged = (User) users.addUser(user.getID(),user.getName(),user.getAdress(),user.getEmail());
             URI uri = new URI(request.getRequestURI() + merged.getID());
             return Response.created(uri).
                     build();
@@ -125,7 +125,7 @@ public class UserResources {
             if (user.getID() == null)
                 throw new IllegalArgumentException("Can't edit User since it does not exist in the database");
 
-            users.UpdateUser(user.getID(),user.getName(),user.getEmail(),user.getAdress());
+            users.updateUser(user.getID(),user.getName(),user.getEmail(),user.getAdress());
             return Response.ok().
                     build();
         } catch (Exception e) {
@@ -139,7 +139,7 @@ public class UserResources {
     @DELETE
     public Response deleteUser(@QueryParam("id") String id) {
         try {
-            users.DeleteUserById(id);
+            users.deleteUserById(id);
             return Response.ok().
                     build();
         } catch (Exception e) {

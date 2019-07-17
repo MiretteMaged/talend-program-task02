@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Users {
 static ArrayList<User> Users= new ArrayList<User>();
 
-public User AddUser(String ID, String Name, String Adress, String Email){
+public User addUser(String ID, String Name, String Adress, String Email){
     boolean found=false;
     for(int i=0;i<Users.size();i++){
         if(Users.get(i).getID()==ID){
@@ -25,12 +25,12 @@ public User AddUser(String ID, String Name, String Adress, String Email){
  return null;
 }
 
-public ArrayList<User> ShowAll(){
+public ArrayList<User> showAll(){
 
     return Users;
 }
 
-public void DeleteUserById(String ID){
+public void deleteUserById(String ID){
     boolean found=false;
    for(int i=0;i<Users.size();i++){
        if(Users.get(i).getID()==ID){
@@ -43,7 +43,7 @@ public void DeleteUserById(String ID){
     }
 }
 
-public String SearchUserById(String ID){
+public String searchUserById(String ID){
     boolean found=false;
         for(int i=0;i<Users.size();i++){
             if(Users.get(i).getID()==ID){
@@ -57,7 +57,7 @@ public String SearchUserById(String ID){
         return null;
 }
 
-    public String SearchUserByName(String Name){
+    public String searchUserByName(String Name){
         boolean found=false;
         for(int i=0;i<Users.size();i++){
             if(Users.get(i).getName()==Name){
@@ -71,7 +71,7 @@ public String SearchUserById(String ID){
         return null;
     }
 
-    public String SearchUserByEmail(String Email){
+    public String searchUserByEmail(String Email){
         boolean found=false;
         for(int i=0;i<Users.size();i++){
             if(Users.get(i).getEmail()==Email){
@@ -85,7 +85,7 @@ public String SearchUserById(String ID){
         return null;
     }
 
-    public String SearchUserByAdress(String Adress){
+    public String searchUserByAdress(String Adress){
         boolean found=false;
         for(int i=0;i<Users.size();i++){
             if(Users.get(i).getAdress()==Adress){
@@ -99,7 +99,7 @@ public String SearchUserById(String ID){
         return null;
     }
 
-    public void UpdateUser(String ID, String Name, String Email, String Adress){
+    public void updateUser(String ID, String Name, String Email, String Adress){
     boolean found=false;
         for(int i=0;i<Users.size();i++){
             if(Users.get(i).getID()==ID){
