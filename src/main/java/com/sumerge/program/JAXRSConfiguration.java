@@ -7,7 +7,7 @@ import javax.ws.rs.core.Application;
     /**
      * @author Mawaziny
      */
-    @ApplicationPath("Users")
+    @ApplicationPath("User")
     public class JAXRSConfiguration extends Application {
 
     }

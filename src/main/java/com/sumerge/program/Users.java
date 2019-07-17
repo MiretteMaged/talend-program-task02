@@ -21,8 +21,9 @@ public User addUser(String ID, String Name, String Adress, String Email){
     return user;}
     else{
         System.out.println("Duplicate User");
+        throw new IllegalArgumentException("Duplicate User");
     }
- return null;
+ //return null;
 }
 
 public ArrayList<User> showAll(){
@@ -40,6 +41,7 @@ public void deleteUserById(String ID){
    }
     if(!found){
         System.out.println("This user does not exsist");
+        throw new IllegalArgumentException("This user does not exsist");
     }
 }
 
@@ -53,6 +55,7 @@ public String searchUserById(String ID){
         }
     if(!found){
         System.out.println("This user does not exsist");
+        throw new IllegalArgumentException("This user does not exsist");
     }
         return null;
 }
@@ -67,6 +70,7 @@ public String searchUserById(String ID){
         }
         if(!found){
             System.out.println("This user does not exsist");
+            throw new IllegalArgumentException("This user does not exsist");
         }
         return null;
     }
@@ -81,6 +85,7 @@ public String searchUserById(String ID){
         }
         if(!found){
             System.out.println("This user does not exsist");
+            throw new IllegalArgumentException("This user does not exsist");
         }
         return null;
     }
@@ -95,6 +100,7 @@ public String searchUserById(String ID){
         }
         if(!found){
             System.out.println("This user does not exsist");
+            throw new IllegalArgumentException("This user does not exsist");
         }
         return null;
     }
@@ -112,6 +118,7 @@ public String searchUserById(String ID){
         }
         if(!found){
             System.out.println("This user does not exsist");
+            throw new IllegalArgumentException("This user does not exsist");
         }
     }
 

@@ -2,20 +2,20 @@ package com.sumerge.program;
 
 public class User {
     private String ID;
-    private String Name;
+    private String name;
     private String email;
     private String adress;
 
     public User(String ID, String Name,String email,String adress){
         this.ID = ID;
-        this.Name = Name;
+        this.name = Name;
         this.adress=adress;
         this.email=email;
     }
 
 
     public void setName(String name) {
-        Name = name;
+        name = name;
     }
 
     public String getID() {
@@ -23,7 +23,7 @@ public class User {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String getEmail() {
@@ -46,7 +46,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "ID='" + ID + '\'' +
-                ", Name='" + Name + '\'' +
+                ", Name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", adress='" + adress + '\'' +
                 '}';
