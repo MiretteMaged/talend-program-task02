@@ -1,13 +1,16 @@
 package com.sumerge.program;
 
 public class User {
-    private String ID;
+    private String id;
     private String name;
     private String email;
     private String adress;
+    public User(){
+
+    }
 
     public User(String ID, String Name,String email,String adress){
-        this.ID = ID;
+        this.id = ID;
         this.name = Name;
         this.adress=adress;
         this.email=email;
@@ -19,7 +22,11 @@ public class User {
     }
 
     public String getID() {
-        return ID;
+        return id;
+    }
+
+    public void setID(String ID) {
+        this.id = ID;
     }
 
     public String getName() {
@@ -45,7 +52,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "ID='" + ID + '\'' +
+                "ID='" + id + '\'' +
                 ", Name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", adress='" + adress + '\'' +

@@ -6,7 +6,9 @@ import java.util.ArrayList;
 
 
 public class Users {
-static ArrayList<User> Users= new ArrayList<User>();
+public static ArrayList<User> Users= new ArrayList<User>(){
+    {add(new User("34-1439","Mirette","Rehab","mirette@gmail"));}
+};
 
 public User addUser(String ID, String Name, String Adress, String Email){
     boolean found=false;
@@ -34,7 +36,7 @@ public ArrayList<User> showAll(){
 public void deleteUserById(String ID){
     boolean found=false;
    for(int i=0;i<Users.size();i++){
-       if(Users.get(i).getID()==ID){
+       if(Users.get(i).getID().equals(ID)){
            Users.remove(i);
            found=true;
        }
@@ -48,7 +50,7 @@ public void deleteUserById(String ID){
 public String searchUserById(String ID){
     boolean found=false;
         for(int i=0;i<Users.size();i++){
-            if(Users.get(i).getID()==ID){
+            if(Users.get(i).getID().equals(ID)){
                 found=true;
                 return Users.get(i).toString();
             }
@@ -63,7 +65,7 @@ public String searchUserById(String ID){
     public String searchUserByName(String Name){
         boolean found=false;
         for(int i=0;i<Users.size();i++){
-            if(Users.get(i).getName()==Name){
+            if(Users.get(i).getName().equals(Name)){
                 found=true;
                 return Users.get(i).toString();
             }
@@ -78,7 +80,7 @@ public String searchUserById(String ID){
     public String searchUserByEmail(String Email){
         boolean found=false;
         for(int i=0;i<Users.size();i++){
-            if(Users.get(i).getEmail()==Email){
+            if(Users.get(i).getEmail().equals(Email)){
                 found=true;
                 return Users.get(i).toString();
             }
@@ -93,7 +95,7 @@ public String searchUserById(String ID){
     public String searchUserByAdress(String Adress){
         boolean found=false;
         for(int i=0;i<Users.size();i++){
-            if(Users.get(i).getAdress()==Adress){
+            if(Users.get(i).getAdress().equals(Adress)){
                 found=true;
                 return Users.get(i).toString();
             }
@@ -108,7 +110,7 @@ public String searchUserById(String ID){
     public void updateUser(String ID, String Name, String Email, String Adress){
     boolean found=false;
         for(int i=0;i<Users.size();i++){
-            if(Users.get(i).getID()==ID){
+            if(Users.get(i).getID().equals(ID)){
                 found=true;
                 Users.get(i).setName(Name);
                 Users.get(i).setAdress(Adress);
@@ -121,5 +123,8 @@ public String searchUserById(String ID){
             throw new IllegalArgumentException("This user does not exsist");
         }
     }
-
+public static void main(String args){
+    Users x= new Users();
+    x.addUser("34-1439","Mirette","Rehab","mirette@gmail");
+}
 }

@@ -25,7 +25,7 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 
 public class UserResources {
     private static final Logger LOGGER = Logger.getLogger(UserResources.class.getName());
-    private Users users;
+    private Users users= new Users();
     @Context
     HttpServletRequest request;
 
@@ -44,6 +44,7 @@ public class UserResources {
     }
 
     @GET
+    @Path("id")
     public Response getUserByID(@QueryParam("id") String id) {
         try {
 
@@ -59,6 +60,7 @@ public class UserResources {
     }
 
     @GET
+    @Path("name")
     public Response getUserByName(@QueryParam("name") String name) {
         try {
 
@@ -73,6 +75,7 @@ public class UserResources {
         }
     }
     @GET
+    @Path("address")
     public Response getUserByAdress(@QueryParam("adress") String adress) {
         try {
 
@@ -88,6 +91,7 @@ public class UserResources {
     }
 
     @GET
+    @Path("email")
     public Response getUserByEmail(@QueryParam("email") String email) {
         try {
 
@@ -104,7 +108,7 @@ public class UserResources {
     @POST
     public Response addUser(User user) {
         try {
-            if (user.getID() != null)
+            if (user.getID() == null)
                 throw new IllegalArgumentException("Can't create user since it exists in the database");
 
             User merged = (User) users.addUser(user.getID(),user.getName(),user.getAdress(),user.getEmail());
