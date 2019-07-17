@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 
 public class Users {
-ArrayList<User> Users= new ArrayList<User>();
+static ArrayList<User> Users= new ArrayList<User>();
 
 public User AddUser(String ID, String Name, String Adress, String Email){
     boolean found=false;

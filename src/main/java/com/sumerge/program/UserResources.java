@@ -44,8 +44,7 @@ public class UserResources {
     }
 
     @GET
-    @Path("{id}")
-    public Response getUserByID(@PathParam("id") String id) {
+    public Response getUserByID(@QueryParam("id") String id) {
         try {
 
             return Response.ok().
@@ -60,8 +59,7 @@ public class UserResources {
     }
 
     @GET
-    @Path("{name}")
-    public Response getUserByName(@PathParam("name") String name) {
+    public Response getUserByName(@QueryParam("name") String name) {
         try {
 
             return Response.ok().
@@ -75,8 +73,7 @@ public class UserResources {
         }
     }
     @GET
-    @Path("{adress}")
-    public Response getUserByAdress(@PathParam("adress") String adress) {
+    public Response getUserByAdress(@QueryParam("adress") String adress) {
         try {
 
             return Response.ok().
@@ -91,8 +88,7 @@ public class UserResources {
     }
 
     @GET
-    @Path("{email}")
-    public Response getUserByEmail(@PathParam("email") String email) {
+    public Response getUserByEmail(@QueryParam("email") String email) {
         try {
 
             return Response.ok().
@@ -141,8 +137,7 @@ public class UserResources {
     }
 
     @DELETE
-    @Path("{id}")
-    public Response deleteUser(@PathParam("id") String id) {
+    public Response deleteUser(@QueryParam("id") String id) {
         try {
             users.DeleteUserById(id);
             return Response.ok().
