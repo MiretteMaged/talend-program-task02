@@ -39,6 +39,12 @@
 
         <dependency>
             <groupId>io.thorntail</groupId>
+            <artifactId>datasources</artifactId>
+        </dependency>
+
+
+        <dependency>
+            <groupId>io.thorntail</groupId>
             <artifactId>cdi</artifactId>
         </dependency>
 
@@ -57,6 +63,12 @@
             <artifactId>eclipselink</artifactId>
             <version>${eclipselink.version}</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${version.mysql}</version>
         </dependency>
 
         <dependency>

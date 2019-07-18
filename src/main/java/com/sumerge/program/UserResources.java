@@ -14,6 +14,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import java.net.URI;
 import java.util.logging.Logger;
+import javax.ws.rs.core.SecurityContext;
 
 import static java.util.logging.Level.SEVERE;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
@@ -27,10 +28,14 @@ public class UserResources {
     private static final Logger LOGGER = Logger.getLogger(UserResources.class.getName());
     private Users users= new Users();
     @Context
+    private SecurityContext securityContext;
+
+    @Context
     HttpServletRequest request;
 
     @GET
     public Response getAllUsers() {
+        LOGGER.info("Entering post with user " + securityContext.getUserPrincipal().toString());
         try {
             return Response.ok().
                     entity(users.showAll()).
@@ -46,6 +51,7 @@ public class UserResources {
     @GET
     @Path("id")
     public Response getUserByID(@QueryParam("id") String id) {
+        LOGGER.info("Entering post with user " + securityContext.getUserPrincipal().toString());
         try {
 
             return Response.ok().
@@ -62,6 +68,7 @@ public class UserResources {
     @GET
     @Path("name")
     public Response getUserByName(@QueryParam("name") String name) {
+        LOGGER.info("Entering post with user " + securityContext.getUserPrincipal().toString());
         try {
 
             return Response.ok().
@@ -77,6 +84,7 @@ public class UserResources {
     @GET
     @Path("address")
     public Response getUserByAdress(@QueryParam("adress") String adress) {
+        LOGGER.info("Entering post with user " + securityContext.getUserPrincipal().toString());
         try {
 
             return Response.ok().
@@ -93,6 +101,7 @@ public class UserResources {
     @GET
     @Path("email")
     public Response getUserByEmail(@QueryParam("email") String email) {
+        LOGGER.info("Entering post with user " + securityContext.getUserPrincipal().toString());
         try {
 
             return Response.ok().
@@ -107,6 +116,7 @@ public class UserResources {
     }
     @POST
     public Response addUser(User user) {
+        LOGGER.info("Entering post with user " + securityContext.getUserPrincipal().toString());
         try {
             if (user.getID() == null)
                 throw new IllegalArgumentException("Can't create user since it exists in the database");
@@ -125,6 +135,7 @@ public class UserResources {
 
     @PUT
     public Response editUser (User user) {
+        LOGGER.info("Entering post with user " + securityContext.getUserPrincipal().toString());
         try {
             if (user.getID() == null)
                 throw new IllegalArgumentException("Can't edit User since it does not exist in the database");
@@ -142,6 +153,7 @@ public class UserResources {
 
     @DELETE
     public Response deleteUser(@QueryParam("id") String id) {
+        LOGGER.info("Entering post with user " + securityContext.getUserPrincipal().toString());
         try {
             users.deleteUserById(id);
             return Response.ok().
